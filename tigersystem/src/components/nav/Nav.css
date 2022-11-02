@@ -1,58 +1,50 @@
 .menu-area {
     display: flex;
+    position:relative;
     background-color: rgba(3, 3, 3, 0.89);
-    height: 75px;
+    height: 100px;
     width: 100%;
     border-bottom:solid ;
 }
 
 .nav {
-    height: 10px;
-}
-
-.link {
-    margin-right: 10px;
-    padding-right: 10px !important;
-    
+    display: flex;
+    position: relative;
+    width: 100%;
 }
 
 .link:hover{
     background: linear-gradient(135deg, #222222 0%, #23bca8 100%);
-
 }
 
 .linkMenu{
-  display: inline;
-  position: absolute;
-  padding-top: 25px;
-}
-
-a{
-    color: #FFF;
-    font-weight: 300;
-    padding:0px;
-    text-decoration: none;
-    border-radius:  15px;
+  display: flex;
+  position: relative; 
+  bottom:75%;
+  padding-right: 30px;
+  padding-bottom: 20px;
 }
 
 .logo{
+    display: flex;
     width: 150px;
-    margin-right: 400px;
+    padding: 0;    
 }
+
 .navbar-brand {
     padding: 0;
     color: #FFF;
+    width: 100%;
 }
-  
+
 .navbar-brand:hover {
     color: #FFF;
-}
-  
-  
+}  
+
 .navbar-expand-lg .navbar-nav .nav-link {
     padding: 1rem .8rem;
  }
-  
+
 .nav-item.active {
     border-bottom: 3px solid #FFF;
 }
@@ -64,4 +56,38 @@ a{
     padding:15px;
     text-decoration: none;
     border-radius:  15px;
+}
+
+.hamburger {
+    padding-bottom: 10px!important;    
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    position: relative;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: none;
+}
+.hamburger:hover {
+    background-color: #3f4141;
+    border-radius: 25%;
+    padding: 10px;
+   
+}
+
+
+
+@media screen and (max-width: 1000px){
+    .linkMenu{
+        display: none !important;
+    }
+    .linkMenu a{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+        position: absolute;
+    }
+    
+
 }

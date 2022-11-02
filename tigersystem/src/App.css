@@ -2,6 +2,7 @@
 body {
   padding: 0px;
   margin: 0px;
-  overflow-x: hidden;
   font-family: 'Inter', sans-serif;
+  background: black;
+  width: 100%;
 }
