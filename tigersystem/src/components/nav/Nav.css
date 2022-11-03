@@ -59,6 +59,7 @@
 }
 
 .hamburger {
+    margin-top:40px;
     padding-bottom: 10px!important;    
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
@@ -69,11 +70,24 @@
     display: none;
 }
 .hamburger:hover {
-    background-color: #3f4141;
     border-radius: 25%;
     padding: 10px;
    
 }
+
+.menuResponsive{
+    display: none;
+    padding-bottom: 100px;
+    width: 100px;
+    height: 100px;
+    margin-right: 50px;
+    background-color: #3f4141;
+    border-radius: 25%;
+
+}
+
+
+
 
 
 
@@ -88,6 +102,8 @@
         display: block;
         position: absolute;
     }
-    
+    .hamburger img{
+        margin-left: 55px;
+    }   
 
 }
