@@ -4,15 +4,24 @@ import Logo from "../../assets/img/logo.png";
 import "./Nav.css";
 
 export function Nav() {
-  const [isNavExpanded, setNavExpanded] = useState(false);
+  const [menuResponsive, setMenuResponsive] = useState("menuResponsive");
+  const [hamburger, setHambuger] = useState("hamburger");
 
   const handleExpanded = useCallback(() => {
-    if (!isNavExpanded) {
-      alert(isNavExpanded);
-      setNavExpanded(isNavExpanded);
-      console.log(isNavExpanded);
+    let subMenu = menuResponsive;
+    let subHamburger = hamburger;
+    if (subMenu == "menuResponsive" && subHamburger == "hamburger") {
+      subMenu = "menuResponsive2";
+      subHamburger = "hamburgerSub";
+      setMenuResponsive(subMenu);
+      setHambuger(subHamburger);
+    } else {
+      subMenu = "menuResponsive";
+      subHamburger = "hamburger";
+      setMenuResponsive(subMenu);
+      setHambuger(subHamburger);
     }
-  }, [isNavExpanded]);
+  }, [menuResponsive, hamburger]);
 
   return (
     <div className="menu-area">
@@ -20,46 +29,51 @@ export function Nav() {
         <Link to="/" className="logo navbar-brand">
           <img className="logo" src={Logo} alt="logo" />
         </Link>
-        <div className="hamburger">
-          <div>
+        {/* Main Menu */}
+        <div className="containerMainMenu">
+          <div className="linkMenu">
+            <Link className="link" to={"/"}>
+              Home
+            </Link>
+            <Link className="link" to={"/"}>
+              About
+            </Link>
+            <Link className="link" to={"/"}>
+              Product
+            </Link>
+            <Link className="link" to={"/"}>
+              Services
+            </Link>
+            <Link className="link" to={"/"}>
+              Contact
+            </Link>
+          </div>
+        </div>
+
+        {/* Responsive menu */}
+        <div className="containerHamburger">
+          <div className={hamburger}>
             <img
               onClick={handleExpanded}
               src="https://img.icons8.com/fluency/48/000000/menu--v1.png"
             />
           </div>
-          <div className="menuResponsive">
-            <div className="linkResp">
-              <Link className="linkMenResp" to={"/"}>
+          <div className="containerMenu">
+            <div className={menuResponsive}>
+              <Link className="linkMenResp" onClick={handleExpanded} to={"/"}>
                 Home <br />
               </Link>
-              <Link className="linkMenResp" to={"/"}>
+              <Link className="linkMenResp" onClick={handleExpanded} to={"/"}>
                 About <br />
               </Link>
-              <Link className="linkMenResp" to={"/"}>
+              <Link className="linkMenResp" onClick={handleExpanded} to={"/"}>
                 Service <br />
               </Link>
-              <Link className="linkMenResp" to={"/"}>
+              <Link className="linkMenResp" onClick={handleExpanded} to={"/"}>
                 Contact <br />
               </Link>
             </div>
           </div>
-        </div>
-        <div className="linkMenu">
-          <Link className="link" to={"/"}>
-            Home
-          </Link>
-          <Link className="link" to={"/"}>
-            About
-          </Link>
-          <Link className="link" to={"/"}>
-            Product
-          </Link>
-          <Link className="link" to={"/"}>
-            Services
-          </Link>
-          <Link className="link" to={"/"}>
-            Contact
-          </Link>
         </div>
       </nav>
     </div>
