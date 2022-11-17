@@ -33,19 +33,19 @@ export function Nav() {
         <div className="containerMainMenu">
           <div className="linkMenu">
             <Link className="link" to={"/"}>
-              Home
+              Inicio
             </Link>
-            <Link className="link" to={"/"}>
-              About
+            <Link className="link" to={"/sobre"}>
+              Sobre
             </Link>
-            <Link className="link" to={"/"}>
-              Product
+            <Link className="link" to={"/produtos"}>
+              Produtos
             </Link>
-            <Link className="link" to={"/"}>
-              Services
+            <Link className="link" to={"/servicos"}>
+              Serviços
             </Link>
-            <Link className="link" to={"/"}>
-              Contact
+            <Link className="link" to={"/contato"}>
+              Contato
             </Link>
           </div>
         </div>

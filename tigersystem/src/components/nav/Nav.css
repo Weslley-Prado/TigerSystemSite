@@ -1,21 +1,29 @@
 .menu-area {
     display: flex;
-    position: relative;
     background-color: rgba(3, 3, 3, 0.89);
     height: 100px;
     width: 100%;
-    border-bottom: solid;
+    border-bottom: solid 2px;
     justify-content: flex-end;
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    z-index: 2;
+
 }
 
 .nav {
     display: flex;
-    position: relative;
+    position: sticky;
     width: 100%;
+   
+
 }
 
 .link:hover {
+    transition: transform 220ms;
     background: linear-gradient(135deg, #222222 0%, #23bca8 100%);
+    transform: scale(1.2);
 }
 
 .linkMenu {
@@ -23,6 +31,8 @@
     position: relative;
     bottom: 75%;
     padding-bottom: 20px;
+    margin-right: 20px!important;
+    
 }
 
 .logo {
@@ -42,10 +52,13 @@
 
 .navbar-brand:hover {
     color: #FFF;
+    position: fixed;
+
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
     padding: 1rem .8rem;
+    
 
 }
 
@@ -56,10 +69,11 @@
 .menu a {
     display: inline;
     color: #FFF;
-    font-weight: 300;
+    font-weight: bold;
     padding: 15px;
     text-decoration: none;
     border-radius: 15px;
+    
 }
 
 .hamburger {
@@ -73,6 +87,7 @@
     transform: translateY(-50%);
     display: none;
 }
+
 
 .hamburger:hover {
     border-radius: 25%;
