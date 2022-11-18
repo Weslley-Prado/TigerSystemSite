@@ -1,4 +1,4 @@
-.carousel{
+.carousel {
     display: flex;
 }
 
@@ -8,7 +8,7 @@
 
 }
 
-.sizeGif{
+.sizeGif {
     height: 180px;
 }
 
@@ -19,23 +19,25 @@ p {
     font-weight: bold;
 }
 
-.corouselParagraph{
-  font-size: 24px;
-  color: rgb(192, 243, 8);
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; 
+.corouselParagraph {
+    font-size: 24px;
+    color: rgb(192, 243, 8);
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
 
 .titleHome {
     color: white;
     text-align: center;
 }
-.showIntroductionHome{
+
+.showIntroductionHome {
     display: flex;
     width: 100%;
     height: 75px;
     flex-direction: row-reverse;
-   
+
 }
+
 .introductionHome {
     background-color: white;
     width: 30%;
@@ -54,27 +56,28 @@ p {
 
 }
 
-.introductionHome:hover, .introductionHome:active {
+.introductionHome:hover,
+.introductionHome:active {
     margin-top: 0px;
     padding-top: 2px;
-    transition: 350ms;    
+    transition: 350ms;
     transition: background-color 1s;
-   
+
 }
 
-main{
+main {
     padding-top: 20px;
     margin-top: 20px;
     background-color: gray;
 }
 
-.mainTitle{
+.mainTitle {
     color: white;
     font-style: italic;
     text-align: center;
     font-size: larger;
-   color: white;
-   text-shadow: 1px 1px 2px black, 0 0 25px rgb(13, 13, 14), 0 0 5px rgb(39, 39, 39); 
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(13, 13, 14), 0 0 5px rgb(39, 39, 39);
 
 }
 
@@ -82,41 +85,41 @@ main:hover {
     transform: scale(1.01);
 }
 
-.mainParagraph{
+.mainParagraph {
     padding: 10px 20px 20px 10px;
     background-color: gray;
     font-weight: lighter;
     color: white;
     text-shadow: 1px 1px 2px black, 0 0 25px rgb(13, 13, 14), 0 0 5px rgb(39, 39, 39);
-    text-align: center; 
+    text-align: center;
 }
 
-.informMore{
+.informMore {
     padding-top: 340px;
     color: white;
 }
 
-.infoMore h2{
+.infoMore h2 {
     text-align: center;
 }
 
-.imgSetInfo{
+.imgSetInfo {
     margin-left: 10px;
     width: 48.5%;
     height: 330px;
 }
 
-.imgSetInfo:hover{
+.imgSetInfo:hover {
     transition: transform 1s;
     transform: scale(1.05);
 }
 
-.imgInfo{
+.imgInfo {
     display: flex;
     justify-content: start;
 }
 
-.textInfoHome{
+.textInfoHome {
     display: block;
     width: 100%;
     display: flex;
@@ -127,11 +130,12 @@ main:hover {
     flex-direction: column;
 
 }
-.textDivHome{
+
+.textDivHome {
     width: 48.5%;
 }
 
-.textDivHome:hover{
+.textDivHome:hover {
     padding: 20px;
     transition: transform 1s;
     transform: scale(1.05);
@@ -139,5 +143,47 @@ main:hover {
     height: 380px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
+    
+    .introductionHome p{
+        font-size: 12px;
+    }
+    .textInfoHome{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 818px){
+    .showIntroductionHome{
+        display: block;
+        width: 100%;
+        height: 75px;
+        flex-direction: column;
+    }
+    .introductionHome{
+        width: 97%;
+    }
+    .introductionHome p{
+        font-size: 18px;
+    }
+    .informMore{
+        width: 99%;
+    }
+    .infoMore{
+        margin-top:1170px;
+        display: block;
+        flex-direction: column;
+        width: 100%;
+    }
+    .imgInfo {
+        display: block;
+        justify-content: start;
+        width: 100%;
+    }
+    .imgSetInfo{
+        width: 98%;
+    }
+    .textDivHome{
+        width: 98%;
+    }
 }

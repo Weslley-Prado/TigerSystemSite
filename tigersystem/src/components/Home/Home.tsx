@@ -109,10 +109,7 @@ export function Home() {
           </p>
         </div>
         <div className="introductionHome">
-          {/* <h3 className="titleHome">
-         Uma empresa especializada em desenvolvimento de software e sites
-        </h3> */}
-          <img
+            <img
             className="d-block w-100 sizeGif"
             src={Automatic}
             alt="First slide"
