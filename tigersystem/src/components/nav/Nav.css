@@ -24,6 +24,7 @@
     transition: transform 220ms;
     background: linear-gradient(135deg, #222222 0%, #23bca8 100%);
     transform: scale(1.2);
+    color: white;
 }
 
 .linkMenu {
