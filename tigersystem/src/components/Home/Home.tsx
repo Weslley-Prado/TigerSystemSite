@@ -105,7 +105,7 @@ export function Home() {
             Fique a apenas um clique de seus clientes, a tendência é cada vez
             mais serviços e produtos serem fornecedidos via web, pois traz mais
             praticidade durante todo o processo de compra e venda. Entre em
-            contato conosco e conheça mais os nossos serviços!
+            contato conosco!
           </p>
         </div>
         <div className="introductionHome">
