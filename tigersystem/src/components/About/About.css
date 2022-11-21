@@ -1,0 +1,42 @@
+.titleAboutDiv{
+    width: 450px; 
+    margin-left: auto;
+    margin-right: auto; 
+}
+.titleAboutDiv{
+    color: white;
+}
+.aboutCompany{
+    display: flex;
+}
+
+.aboutCompany p{
+    margin-left: 20px;
+}
+.aboutImg{
+    width:40%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.lead {
+  text-align: justify;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 818px) {
+    .titleAboutDiv{
+        width: 250px; 
+        margin-left: auto;
+        margin-right: auto; 
+    }
+    .aboutCompany{
+        display: block;
+    }
+    .aboutImg{
+        width:92%;
+        margin-left: 20px;
+        margin-right: 20px !important;
+        margin-bottom: 10px;
+    }
+}
