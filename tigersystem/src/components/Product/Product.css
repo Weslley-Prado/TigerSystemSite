@@ -1,0 +1,91 @@
+.titleProduct {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0 10px 0px;
+    background-color: rgb(2, 2, 16)!important;
+}
+.title {
+    color: white;
+    font-size: 28px;
+    animation-name: example;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    padding: 10px;
+    
+}
+
+@keyframes example {
+    from {
+        color: rgb(215, 215, 215);
+        transform: scale(0.9,0.9);
+
+    }
+
+    to {
+        color: rgb(255, 255, 255);
+        transform: scale(1,1.2);
+        font-weight:bold;
+        text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    }
+}
+
+.titleProduct hr {
+    width: 90%;
+    margin-left: 70px;
+    margin-right: 70px;
+    padding: 2px;
+}
+
+.contentRight{
+    display: flex;
+    max-width: 100%;
+    height: 280px;
+    background-color: rgb(2, 2, 16)!important;
+}
+
+.imgProductLeft{
+    display: flex;
+    height: 280px;
+    width: 50%;
+}
+
+.imgProductLeft img{
+    padding: 20px;
+    height: 280px;
+    width: 100%;
+}
+.textRight{
+    color: white;
+    height: 280px;
+    width: 50%;
+    padding: 20px;
+}
+
+
+.contentleft{
+    display: flex;
+    max-width: 100%;
+    height: 280px;
+    background-color: rgb(2, 2, 16)!important;
+}
+
+
+.imgProductRight{
+    display: flex;
+    height: 280px;
+    width: 50%;
+}
+
+.imgProductRight img{
+    padding: 20px;
+    height: 280px;
+    width: 100%;
+}
+.textLeft{
+    color: white;
+    height: 280px;
+    width: 50%;
+    padding: 20px;
+}
