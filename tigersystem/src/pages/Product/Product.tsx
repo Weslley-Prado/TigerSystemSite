@@ -13,11 +13,15 @@ export function Product() {
           <img src={TigerSystemOrder} />
         </div>
         <div className="textRight">
+          <h3>Tiger System - Order</h3>
+          <hr />
           <p>Texto</p>
         </div>
       </section>
       <section className="contentleft">
         <div className="textLeft">
+        <h3>Tiger System - Seller</h3>
+          <hr />
           <p>Texto</p>
         </div>
         <div className="imgProductRight">
@@ -29,11 +33,15 @@ export function Product() {
           <img src={TigerSystemOrder} />
         </div>
         <div className="textRight">
+        <h3>Tiger System - Ponto Eletrônico</h3>
+          <hr />
           <p>Texto</p>
         </div>
       </section>
       <section className="contentleft">
         <div className="textLeft">
+        <h3>Tiger System - Emissor de Nota Fiscal</h3>
+          <hr />
           <p>Texto</p>
         </div>
         <div className="imgProductRight">
