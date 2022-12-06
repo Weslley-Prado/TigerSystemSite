@@ -1,0 +1,41 @@
+form {
+    width: 750px;
+    margin-left: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContent{
+    width: 750px;
+}
+
+.inputContent input{
+    width: 550px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.inputContent textarea{
+    width: 550px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+label {
+    color: rgb(212, 212, 212);
+}
+
+.formButton {
+    width: 550px;
+    margin-bottom: 10px;
+    background-color: rgb(4, 4, 237);
+    color:aliceblue;
+    border-radius: 10px;
+    border:none;
+}
+
+.formButton:hover{
+    transform: scale(1.02);
+    background-color: rgb(24, 24, 255);
+
+}
