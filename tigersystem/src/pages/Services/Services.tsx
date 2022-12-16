@@ -20,7 +20,10 @@ export function Services() {
         <div className="textRight">
           <h3>Criação de Sites</h3>
           <hr />
-          <p>Desenvolvemos </p>
+          <p className="lead">Desenvolvemos as melhores soluções em websites para sua empresa
+          permitindo que sua empresa fique mais vísivel alcançando novos clientes. Confira os modelos 
+          de páginas que temos!
+          </p>
           <button>Nosso Portifólio</button>
         </div>
       </section>
@@ -28,7 +31,11 @@ export function Services() {
         <div className="textLeft">
         <h3>Criação de Ecommerce</h3>
           <hr />
-          <p>Desenvolvemos </p>
+          <p className="lead">
+            Temos as melhores soluções para você que não quer depender apenas de um local físico para seu negócio.
+            Atualmente, as vendas por meio da internet têm crescido em larga escala e estamos aqui para trazer
+            sua empresa para internet.  
+          </p>
           <button>Nosso Portifólio</button>
         </div>
         <div className="imgProductRight">
