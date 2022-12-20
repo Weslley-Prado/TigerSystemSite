@@ -66,7 +66,7 @@ export function Footer() {
                   Sistema de Vendas
                 </a>
               </p>
-              <p>
+              {/* <p>
                 <a href="#!" className="text-reset">
                   Ponto Eletrônico
                 </a>
@@ -75,7 +75,7 @@ export function Footer() {
                 <a href="#!" className="text-reset">
                   Emissor de Nota Fiscal
                 </a>
-              </p>
+              </p> */}
             </MDBCol>
 
             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
@@ -85,11 +85,11 @@ export function Footer() {
                   Criação de sites
                 </a>
               </p>
-              <p>
+              {/* <p>
                 <a href="#!" className="text-reset">
                   Criação de Ecommerce
                 </a>
-              </p>
+              </p> */}
               <p>
                 <a href="#!" className="text-reset">
                   Controle de servidores

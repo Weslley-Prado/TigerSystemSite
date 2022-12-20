@@ -1,3 +1,7 @@
+/* .containerProduct{
+
+} */
+
 .titleProduct {
     width: 100%;
     justify-content: center;
@@ -12,8 +16,7 @@
     animation-name: example;
     animation-iteration-count: infinite;
     animation-duration: 1s;
-    padding: 10px;
-    
+    padding: 10px;    
 }
 
 @keyframes example {

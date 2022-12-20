@@ -8,7 +8,7 @@ import Backup from "../../assets/img/backup.jpg";
 
 export function Services() {
   return (
-    <div>
+    <div className="containerService">
       <div className="titleProduct">
         <h1 className="title">As melhores soluções para o seu negócio</h1>
         <hr />
@@ -29,6 +29,20 @@ export function Services() {
       </section>
       <section className="contentleft">
         <div className="textLeft">
+        <h3>Controle de Backup</h3>
+          <hr />
+          <p className="lead">Acabe com aquela preocupação de fazer backup ou de ter que sempre aumentar
+          a capacidade do seu computador. Nós da Tiger System possuímos competências técnicas para cuidar
+          da segurança do seus dados.
+          </p>
+          <button className="buttonService">Saiba mais</button>
+        </div>
+        <div className="imgProductRight">
+          <img src={Backup} />
+        </div>
+      </section>
+      {/* <section className="contentleft">
+        <div className="textLeft">
         <h3>Criação de Ecommerce</h3>
           <hr />
           <p className="lead">
@@ -41,7 +55,7 @@ export function Services() {
         <div className="imgProductRight">
           <img src={Ecommerce} />
         </div>
-      </section>
+      </section> */}
       <section className="contentRight">
         <div className="imgProductLeft">
           <img src={Server} />
@@ -55,21 +69,8 @@ export function Services() {
          </p>
           <button className="buttonService">Saiba mais</button>
         </div>
-      </section>
-      <section className="contentleft">
-        <div className="textLeft">
-        <h3>Controle de Backup</h3>
-          <hr />
-          <p className="lead">Acabe com aquela preocupação de fazer backup ou de ter que sempre aumentar
-          a capacidade do seu computador. Nós da Tiger System possuímos competências técnicas para cuidar
-          da segurança do seus dados.
-          </p>
-          <button className="buttonService">Saiba mais</button>
-        </div>
-        <div className="imgProductRight">
-          <img src={Backup} />
-        </div>
-      </section>
+      </section>   
+    
     </div>
   );
 }
