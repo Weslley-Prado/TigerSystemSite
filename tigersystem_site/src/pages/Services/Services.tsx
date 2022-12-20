@@ -24,7 +24,7 @@ export function Services() {
           permitindo que sua empresa fique mais vísivel alcançando novos clientes. Confira os modelos 
           de páginas que temos!
           </p>
-          <button>Nosso Portifólio</button>
+          <button className="buttonService">Nosso Portifólio</button>
         </div>
       </section>
       <section className="contentleft">
@@ -36,7 +36,7 @@ export function Services() {
             Atualmente, as vendas por meio da internet têm crescido em larga escala e estamos aqui para trazer
             sua empresa para internet.  
           </p>
-          <button>Nosso Portifólio</button>
+          <button className="buttonService">Nosso Portifólio</button>
         </div>
         <div className="imgProductRight">
           <img src={Ecommerce} />
@@ -49,16 +49,22 @@ export function Services() {
         <div className="textRight">
         <h3>Controle de servidores</h3>
           <hr />
-          <p>Desenvolvemos </p>
-          <button>Saiba mais</button>
+          <p className="lead">Não se preocupe com a sua máquina ou seu servidor local. Deixa que nós 
+          da Tiger System cuidamos para você. Nossa equipe é treinada e especializada para cuidar
+          do funcionamento do coração de seus sistemas comerciais.
+         </p>
+          <button className="buttonService">Saiba mais</button>
         </div>
       </section>
       <section className="contentleft">
         <div className="textLeft">
         <h3>Controle de Backup</h3>
           <hr />
-          <p>Desenvolvemos </p>
-          <button>Saiba mais</button>
+          <p className="lead">Acabe com aquela preocupação de fazer backup ou de ter que sempre aumentar
+          a capacidade do seu computador. Nós da Tiger System possuímos competências técnicas para cuidar
+          da segurança do seus dados.
+          </p>
+          <button className="buttonService">Saiba mais</button>
         </div>
         <div className="imgProductRight">
           <img src={Backup} />

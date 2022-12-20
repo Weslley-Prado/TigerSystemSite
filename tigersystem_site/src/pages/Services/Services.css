@@ -89,3 +89,18 @@
     width: 50%;
     padding: 20px;
 }
+
+.buttonService{
+    border-radius: 12px;
+    height: 40px;
+    color:#fff;
+    font-weight: bold;
+    background-color: rgb(1, 29, 93);
+}
+
+.buttonService:hover{
+    font-weight: bold;
+    transform: scale(1.1,1.1);
+    transition: 0.21s;
+    background-color: rgb(1, 54, 176);
+}
