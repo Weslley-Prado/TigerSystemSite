@@ -1,6 +1,7 @@
 package com.tigersystemseller.rest.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import com.tigersystemseller.model.repository.ProductRepository;
 
 @RestController
 @RequestMapping("/api/products")
+@CrossOrigin("*")
 public class ProductController {
 	  @Autowired
 	  private ProductRepository repository;
@@ -18,15 +20,9 @@ public class ProductController {
 	  @PostMapping
       public ProductFormRequest saveProduct(@RequestBody ProductFormRequest product) {
 		  
-		  Product entityProduct = new Product(
-				  product.getName(), 
-				  product.getDescription(), 
-				  product.getPrice(),
-				  product.getSku());
-		  
+		  Product entityProduct = product.toModel();
 		  repository.save(entityProduct);
-		  
-    	  System.out.println(entityProduct);
-    	  return product;
+		  product.setId(entityProduct.getId());
+    	  return ProductFormRequest.fromModel(entityProduct);
       }
 }
