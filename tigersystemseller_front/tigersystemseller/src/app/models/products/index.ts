@@ -1,9 +1,10 @@
 export interface Product {
-  id?:number;
+  id?: number;
   name?: string;
-  description?:string;
+  description?: string;
   price?: number;
-  sku?:string;
+  sku?: string;
+  register?: string;
 }
 
-const product:Product = { }
+const product: Product = {};

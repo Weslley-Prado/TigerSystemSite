@@ -9,6 +9,8 @@ export const RegisterProducts: React.FC = () => {
   const [price, setPrice] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+  const [id, setId] = useState<number>();
+  const [register, setRegister] = useState<string>();
 
   const handleSubmit = () => {
     const product: Product = {
@@ -17,15 +19,36 @@ export const RegisterProducts: React.FC = () => {
       name,
       description,
     };
-    service
-      .saveProduct(product)
-      .then((productResponse) => console.log(productResponse));
+    service.saveProduct(product).then((productResponse) => {
+      setId(productResponse.id);
+      setRegister(productResponse.register);
+    });
   };
   return (
     <Layout title="Cadastro de produtos">
+      {id && (
+        <div className="columns">
+          <Input
+            label="Código: "
+            columnClass="is-half"
+            value={id}
+            id="inputId"
+            disabled
+          />
+          <Input
+            label="Data Cadastro: "
+            columnClass="is-half"
+            value={register}
+            onChange={setPrice}
+            id="inputDateRegister"
+            disabled
+          />
+        </div>
+      )}
+
       <div className="columns">
         <Input
-          label="Nome do produto: *"
+          label="SKU: *"
           columnClass="is-half"
           value={sku}
           onChange={setSku}
@@ -42,10 +65,9 @@ export const RegisterProducts: React.FC = () => {
           placeholder="Digite o preço do produto"
         />
       </div>
-
       <div className="columns">
         <Input
-          label="Preço: *"
+          label="Digite o nome do produto: *"
           columnClass="is-full"
           value={name}
           onChange={setName}
