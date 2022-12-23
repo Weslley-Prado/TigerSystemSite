@@ -14,15 +14,23 @@ export const RegisterProducts: React.FC = () => {
 
   const handleSubmit = () => {
     const product: Product = {
+      id,
       sku,
       price: parseFloat(price),
       name,
       description,
     };
-    service.saveProduct(product).then((productResponse) => {
-      setId(productResponse.id);
-      setRegister(productResponse.register);
-    });
+
+    if (id) {
+      service
+        .updateProduct(product)
+        .then((response) => console.log("Atualizado"));
+    } else {
+      service.saveProduct(product).then((productResponse) => {
+        setId(productResponse.id);
+        setRegister(productResponse.register);
+      });
+    }
   };
   return (
     <Layout title="Cadastro de produtos">
@@ -96,7 +104,7 @@ export const RegisterProducts: React.FC = () => {
           <div className="field is-grouped">
             <div className="control">
               <button className="button is-link" onClick={handleSubmit}>
-                Salvar
+                {id ? "Atualizar" : "Salvar"}
               </button>
             </div>
 
