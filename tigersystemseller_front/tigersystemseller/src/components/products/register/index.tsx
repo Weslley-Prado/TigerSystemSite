@@ -3,6 +3,7 @@ import { Layout, Input, Message } from "components";
 import { useProductService } from "app/services";
 import { Product } from "app/models/products";
 import { convertToBigDecimal } from "app/util/money";
+import { Alert } from "components/common/message";
 
 export const RegisterProducts: React.FC = () => {
   const service = useProductService();
@@ -12,7 +13,7 @@ export const RegisterProducts: React.FC = () => {
   const [description, setDescription] = useState<string>("");
   const [id, setId] = useState<number>();
   const [register, setRegister] = useState<string>();
-
+  const [messages, setMessages] = useState<Array<Alert>>([]);
   const handleSubmit = () => {
     const product: Product = {
       id,
@@ -23,18 +24,29 @@ export const RegisterProducts: React.FC = () => {
     };
 
     if (id) {
-      service
-        .updateProduct(product)
-        .then((response) => console.log("Atualizado"));
+      service.updateProduct(product).then((response) =>
+        setMessages([
+          {
+            type: "success",
+            text: "Produto atualizado com sucesso",
+          },
+        ])
+      );
     } else {
       service.saveProduct(product).then((productResponse) => {
         setId(productResponse.id);
         setRegister(productResponse.register);
+        setMessages([
+          {
+            type: "success",
+            text: "Produto salvo com sucesso",
+          },
+        ]);
       });
     }
   };
   return (
-    <Layout title="Cadastro de produtos">
+    <Layout title="Cadastro de produtos" messages={messages}>
       {id && (
         <div className="columns">
           <Input

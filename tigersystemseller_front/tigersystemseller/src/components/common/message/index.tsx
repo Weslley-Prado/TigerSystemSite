@@ -1,6 +1,12 @@
 interface MessageProps {
   type: string;
-  field: string;
+  field?: string;
+  text: string;
+}
+
+export interface Alert {
+  type: string;
+  field?: string;
   text: string;
 }
 
