@@ -25,7 +25,8 @@ public class ProductController {
 	@Autowired
 	private ProductRepository repository;
 	@GetMapping
-	public List<ProductFormRequest> getListProduct(){
+	public List<ProductFormRequest> getListProduct() {
+		//Thread.sleep(5000); -> Teste of loader
 		return repository.findAll().stream()
 				.map(ProductFormRequest::fromModel) // Object of reference, only one parameter;
 				.collect(Collectors.toList());

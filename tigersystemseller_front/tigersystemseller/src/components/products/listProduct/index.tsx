@@ -5,6 +5,7 @@ import { Product } from "app/models/products";
 import useSWR from "swr";
 import { httpClient } from "app/http";
 import { AxiosResponse } from "axios";
+import { Loader } from "components/common";
 
 export const ListProducts: React.FC = () => {
   const products: Product[] = [];
@@ -12,16 +13,15 @@ export const ListProducts: React.FC = () => {
     "/api/products",
     (url) => httpClient.get(url)
   );
-  if (!result) {
-    return <div> Carregando </div>;
-  }
+
   return (
     <Layout title="Produtos">
       <Link href="/registers/products">
         <button className="button is-warning">Novo</button>
       </Link>
       <br />
-      <TableProducts product={result.data} />
+      <Loader show={!result} />
+      <TableProducts product={result?.data || []} />
     </Layout>
   );
 };
