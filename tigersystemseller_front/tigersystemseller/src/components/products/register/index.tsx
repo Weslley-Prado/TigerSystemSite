@@ -5,6 +5,7 @@ import { Product } from "app/models/products";
 import { convertToBigDecimal } from "app/util/money";
 import { Alert } from "components/common/message";
 import * as yup from "yup";
+import Link from "next/link";
 
 const msgRequired = "Campo obrigatório";
 
@@ -163,7 +164,9 @@ export const RegisterProducts: React.FC = () => {
             </div>
 
             <div className="control">
-              <button className="button is-link is-light">Voltar</button>
+              <Link href="/search/products">
+                <button className="button is-link is-light">Voltar</button>
+              </Link>
             </div>
           </div>
         </div>
