@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout, Input, Message } from "components";
 import { useProductService } from "app/services";
 import { Product } from "app/models/products";
-import { convertToBigDecimal } from "app/util/money";
+import { convertToBigDecimal, formatReal } from "app/util/money";
 import { Alert } from "components/common/message";
 import * as yup from "yup";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const msgRequired = "Campo obrigatório";
 
@@ -36,6 +37,22 @@ export const RegisterProducts: React.FC = () => {
   const [register, setRegister] = useState<string>();
   const [messages, setMessages] = useState<Array<Alert>>([]);
   const [errors, setErrors] = useState<FormErrors>({});
+  const router = useRouter();
+  const { id: queryId } = router.query;
+
+  useEffect(() => {
+    if (queryId) {
+      service.loadProduct(queryId).then((findProduct) => {
+        setId(findProduct.id);
+        setSku(String(findProduct.sku));
+        setName(String(findProduct.name));
+        setDescription(String(findProduct.description));
+        setPrice(formatReal(`${findProduct.price}`));
+        setRegister(findProduct.register || "");
+      });
+    }
+  }, [queryId]);
+
   const handleSubmit = () => {
     const product: Product = {
       id,

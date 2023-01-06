@@ -26,12 +26,21 @@ public class ProductController {
 	private ProductRepository repository;
 	@GetMapping
 	public List<ProductFormRequest> getListProduct() {
-		//Thread.sleep(5000); -> Teste of loader
+		//Thread.sleep(5000); -> Test of loader
 		return repository.findAll().stream()
 				.map(ProductFormRequest::fromModel) // Object of reference, only one parameter;
 				.collect(Collectors.toList());
 	}
-
+	@GetMapping("{id}")
+    public ResponseEntity<ProductFormRequest> getById(@PathVariable Long id) {
+		Optional<Product> productExists = repository.findById(id);
+		if(productExists.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		var product = productExists.map(ProductFormRequest::fromModel).get();
+		return ResponseEntity.ok(product);
+	}
 	@PostMapping
 	public ProductFormRequest saveProduct(@RequestBody ProductFormRequest product) {		  
 		Product entityProduct = product.toModel();
