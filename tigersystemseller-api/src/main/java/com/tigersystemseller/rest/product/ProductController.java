@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,8 +37,7 @@ public class ProductController {
 		Optional<Product> productExists = repository.findById(id);
 		if(productExists.isEmpty()) {
 			return ResponseEntity.notFound().build();
-		}
-		
+		}		
 		var product = productExists.map(ProductFormRequest::fromModel).get();
 		return ResponseEntity.ok(product);
 	}
@@ -58,6 +58,18 @@ public class ProductController {
 		entityUpdateProduct.setId(id);
 		repository.save(entityUpdateProduct);
 
-		return ResponseEntity.ok().build();
+		return ResponseEntity.noContent().build();
+	}
+	@DeleteMapping("{id}")
+	public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+		Optional<Product> existsProduct  = repository.findById(id);
+		if(existsProduct.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+	
+		repository.delete(existsProduct.get());
+
+		return ResponseEntity.noContent().build();
+		
 	}
 }

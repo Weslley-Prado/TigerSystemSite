@@ -1,4 +1,6 @@
 import { Product } from "app/models/products";
+import { useState } from "react";
+import { boolean } from "yup";
 
 interface TableProductsProps {
   product: Array<Product>;
@@ -47,6 +49,19 @@ const ProductRow: React.FC<ProductRowProps> = ({
   onEdit,
   onDelete,
 }) => {
+  const [dialogDelete, setDialogDelete] = useState<boolean>(false);
+
+  const onDeleteClick = (product: Product) => {
+    if (dialogDelete) {
+      onDelete(product);
+      setDialogDelete(false);
+    } else {
+      setDialogDelete(true);
+    }
+  };
+
+  const exitDelete = () => setDialogDelete(false);
+
   return (
     <tr>
       <td>{product.id}</td>
@@ -54,20 +69,26 @@ const ProductRow: React.FC<ProductRowProps> = ({
       <td>{product.name}</td>
       <td>{product.price}</td>
       <td>
+        {!dialogDelete && (
+          <button
+            onClick={(e) => onEdit(product)}
+            className="button is-success is-rounded is-small"
+          >
+            Editar
+          </button>
+        )}
+
         <button
-          onClick={(e) => onEdit(product)}
-          className="button is-success is-rounded is-small"
-        >
-          {" "}
-          Editar{" "}
-        </button>
-        <button
-          onClick={(e) => onDelete(product)}
+          onClick={(e) => onDeleteClick(product)}
           className="button is-danger is-rounded is-small"
         >
-          {" "}
-          Deletar{" "}
+          {dialogDelete ? "Confirma?" : "Excluir"}
         </button>
+        {dialogDelete && (
+          <button onClick={exitDelete} className="button is-rounded is-small">
+            Cancelar
+          </button>
+        )}
       </td>
     </tr>
   );

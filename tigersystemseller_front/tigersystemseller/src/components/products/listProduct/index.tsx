@@ -7,8 +7,15 @@ import { httpClient } from "app/http";
 import { AxiosResponse } from "axios";
 import { Loader } from "components/common";
 import Router from "next/router";
+import { useProductService } from "app/services";
+import { useEffect, useState } from "react";
+import { Alert } from "components/common/message";
 
 export const ListProducts: React.FC = () => {
+  const service = useProductService();
+  const [messages, setMessages] = useState<Array<Alert>>([]);
+  const [list, setList] = useState<Product[]>([]);
+
   const products: Product[] = [];
   const { data: result, error } = useSWR<AxiosResponse<Product[]>>(
     "/api/products",
@@ -21,11 +28,24 @@ export const ListProducts: React.FC = () => {
   };
 
   const handleDelete = (product: Product) => {
-    console.log(product);
+    service.deleteProduct(product.id).then((response) => {
+      setMessages([
+        {
+          type: "success",
+          text: "Excluído com sucesso",
+        },
+      ]);
+      const alterList: Product[] = list?.filter((p) => p.id !== product.id);
+      setList(alterList);
+    });
   };
 
+  useEffect(() => {
+    setList(result?.data || []);
+  }, [result]);
+
   return (
-    <Layout title="Produtos">
+    <Layout title="Produtos" messages={messages}>
       <Link href="/registers/products">
         <button className="button is-warning">Novo</button>
       </Link>
@@ -35,7 +55,7 @@ export const ListProducts: React.FC = () => {
       <TableProducts
         onEdit={handleEdit}
         onDelete={handleDelete}
-        product={result?.data || []}
+        product={list}
       />
     </Layout>
   );
