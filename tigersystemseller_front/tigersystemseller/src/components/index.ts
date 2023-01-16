@@ -5,3 +5,4 @@
 export { Layout } from "./layout";
 export { RegisterProducts, ListProducts } from "./products";
 export { Input, Message, Loader } from "./common";
+export { RegisterClient } from "./clients";
