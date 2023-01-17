@@ -6,6 +6,9 @@
 .titleAboutDiv{
     color: white;
 }
+.titleAbout{
+    margin-left: 100px;
+}
 .aboutCompany{
     display: flex;
 }

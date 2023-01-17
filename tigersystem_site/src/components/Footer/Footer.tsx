@@ -48,9 +48,9 @@ export function Footer() {
                 <img className="logo" src={Logo} alt="logo" />
               </Link>
               <p>
-               Nossa empresa fica feliz com a sua visita ao nosso site.
-               Estamos aqui prontos para para melhor atender as necessidades
-               de nossos clientes.
+                Nossa empresa fica feliz com a sua visita ao nosso site. Estamos
+                aqui prontos para para melhor atender as necessidades de nossos
+                clientes.
               </p>
             </MDBCol>
 
@@ -106,11 +106,11 @@ export function Footer() {
               <h6 className="text-uppercase fw-bold mb-4">Contato</h6>
               <p>
                 <MDBIcon color="secondary" icon="home" className="me-2" />
-                Linhares, ES 29900-034, Brasil
+                Vargem Alta, ES 29295-000, Brasil
               </p>
               <p>
                 <MDBIcon color="secondary" icon="envelope" className="me-3" />
-               atendimento@tigersystem.com
+                atendimento@tigersystem.com
               </p>
               <p>
                 <MDBIcon color="secondary" icon="phone" className="me-3" /> + 55

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Product.css";
 import TigerSystemOrder from "../../assets/img/about.jpg";
+import { Link } from "react-router-dom";
 export function Product() {
   return (
     <div>
@@ -15,22 +16,29 @@ export function Product() {
         <div className="textRight">
           <h3>Tiger System - Gourmet</h3>
           <hr />
-          <p className="lead">O sistema Tiger System Gourmet proporciona uma experiência única para seu restaurante. Com ele é possível
-            que o garçom faça o pedido e ele seja enviado para a cozinha sem o garçom precisar ir lá.
-            Isso melhora a qualidade do atendimento aos seus clientes. <br />
-            <button className="buttonProduct">Saiba mais</button>
-          </p>       
+          <p className="lead">
+            O sistema Tiger System Gourmet proporciona uma experiência única
+            para seu restaurante. Com ele é possível que o garçom faça o pedido
+            e ele seja enviado para a cozinha sem o garçom precisar ir lá. Isso
+            melhora a qualidade do atendimento aos seus clientes. <br />
+            <Link to="/contato">
+              <button className="buttonProduct">Saiba mais</button>
+            </Link>
+          </p>
         </div>
       </section>
       <section className="contentleft">
         <div className="textLeft">
-        <h3>Tiger System - Seller</h3>
+          <h3>Tiger System - Seller</h3>
           <hr />
           <p className="lead">
-            O Tiger System Seller proporciona uma melhor experiência no seu comércio
-            ao realizar vendas. Ele atende muito bem comércios em geral, como autopeças,
-            depósitos, casas de ração e muitos outros. <br />
-            <button className="buttonProduct">Saiba mais</button>
+            O Tiger System Seller proporciona uma melhor experiência no seu
+            comércio ao realizar vendas. Ele atende muito bem comércios em
+            geral, como autopeças, depósitos, casas de ração e muitos outros.{" "}
+            <br />
+            <Link to="/contato">
+              <button className="buttonProduct">Saiba mais</button>
+            </Link>
           </p>
         </div>
         <div className="imgProductRight">

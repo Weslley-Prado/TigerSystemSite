@@ -8,6 +8,7 @@ export function About() {
       <section>
         <div className="titleAboutDiv">
           <h1 className="titleAbout"> Quem somos </h1>
+          <hr />
         </div>
         <div className="aboutCompany">
           <img src={Software} alt="Empresa" className="aboutImg" />

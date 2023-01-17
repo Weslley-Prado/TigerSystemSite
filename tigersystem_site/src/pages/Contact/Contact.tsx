@@ -36,7 +36,7 @@ export function Contact() {
           <label>CNPJ/CPF</label>
           <div>
             <input
-              type="number"
+              type="text"
               name="document"
               placeholder="CPF ou CNPJ"
               required
