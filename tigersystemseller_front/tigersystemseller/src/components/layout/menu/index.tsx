@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MenuItem } from "./menuItem";
+
 export const Menu: React.FC = () => {
   return (
     <aside className="column is-2 is-narrow-mobile is-fullheight section is-hidden-mobile">
