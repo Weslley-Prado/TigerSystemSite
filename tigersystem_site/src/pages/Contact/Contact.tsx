@@ -1,17 +1,29 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { api } from "../../services/api";
+
 import "./Contact.css";
 
 export function Contact() {
+  const API_PATH = "http://localhost/send-email/email.php";
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    api.post("http://localhost/send-email/email.php");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="formContent">
         <div className="inputContent">
           <label>Nome *</label>
           <div>
             <input
               type="text"
-              name="nome"
-              placeholder="Digite seu nome completo"
+              {...register("fullname")}
+              placeholder="Digite o seu nome"
               required={true}
             />
           </div>
@@ -19,8 +31,8 @@ export function Contact() {
           <div>
             <input
               type="text"
-              name="email"
-              placeholder="Digite seu email"
+              {...register("email")}
+              placeholder="Digite o seu email"
               required
             />
           </div>
@@ -28,25 +40,27 @@ export function Contact() {
           <div>
             <input
               type="phone"
-              name="telefone"
-              placeholder="Digite celular"
+              {...register("phoneNumber")}
+              placeholder="Digite o seu telefone"
               required
             />
           </div>
           <label>CNPJ/CPF</label>
           <div>
             <input
-              type="text"
-              name="document"
-              placeholder="CPF ou CNPJ"
+              {...register("document")}
+              placeholder="Digite o seu CPF ou CNPJ"
               required
             />
           </div>
           <label>Mensagem</label>
           <div>
-            <textarea name="require" placeholder="Escreva sua mensagem" />
+            <textarea
+              {...register("message")}
+              placeholder="Escreva sua mensagem"
+            />
           </div>
-          <button className="formButton">Enviar</button>
+          <input type="submit" className="formButton" />
         </div>
       </div>
     </form>

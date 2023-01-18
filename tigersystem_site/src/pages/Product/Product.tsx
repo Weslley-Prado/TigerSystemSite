@@ -17,7 +17,7 @@ export function Product() {
           <h3>Tiger System - Gourmet</h3>
           <hr />
           <p className="lead">
-            O sistema Tiger System Gourmet proporciona uma experiência única
+            O sistema Tiger Sistem Gourmet proporciona uma experiência única
             para seu restaurante. Com ele é possível que o garçom faça o pedido
             e ele seja enviado para a cozinha sem o garçom precisar ir lá. Isso
             melhora a qualidade do atendimento aos seus clientes. <br />
@@ -29,10 +29,10 @@ export function Product() {
       </section>
       <section className="contentleft">
         <div className="textLeft">
-          <h3>Tiger System - Seller</h3>
+          <h3>Tiger Sistem - Seller</h3>
           <hr />
           <p className="lead">
-            O Tiger System Seller proporciona uma melhor experiência no seu
+            O Tiger Sistem Seller proporciona uma melhor experiência no seu
             comércio ao realizar vendas. Ele atende muito bem comércios em
             geral, como autopeças, depósitos, casas de ração e muitos outros.{" "}
             <br />

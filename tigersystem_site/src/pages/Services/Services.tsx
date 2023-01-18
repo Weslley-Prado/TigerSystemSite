@@ -1,7 +1,7 @@
 import React from "react";
 import "./Services.css";
 import Site from "../../assets/img/site.jpg";
-import Ecommerce from "../../assets/img/ecommerce.jpg";
+// import Ecommerce from "../../assets/img/ecommerce.jpg";
 import Server from "../../assets/img/server.jpg";
 import Backup from "../../assets/img/backup.jpg";
 import { Link } from "react-router-dom";
