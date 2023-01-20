@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Layout, Input, Message } from "components";
+import { Layout, Input, InputMoney, Message } from "components";
 import { useProductService } from "app/services";
 import { Product } from "app/models/products";
 import { convertToBigDecimal, formatReal } from "app/util/money";
@@ -111,7 +111,6 @@ export const RegisterProducts: React.FC = () => {
             label="Data Cadastro: "
             columnClass="is-half"
             value={register}
-            onChange={setPrice}
             id="inputDateRegister"
             disabled
           />
@@ -123,20 +122,19 @@ export const RegisterProducts: React.FC = () => {
           label="SKU: *"
           columnClass="is-half"
           value={sku}
-          onChange={setSku}
+          onChange={(e) => setSku(e.target.value)}
           id="inputSku"
           placeholder="Digite o SKU do produto"
           error={errors.sku}
         />
 
-        <Input
+        <InputMoney
           label="Preço: *"
           columnClass="is-half"
           value={price}
-          onChange={setPrice}
+          onChange={(e) => setPrice(e.target.value)}
           id="inputPrice"
           placeholder="Digite o preço do produto"
-          currency
           maxLength={16}
           error={errors.price}
         />
@@ -146,7 +144,7 @@ export const RegisterProducts: React.FC = () => {
           label="Digite o nome do produto: *"
           columnClass="is-full"
           value={name}
-          onChange={setName}
+          onChange={(e) => setName(e.target.value)}
           id="inputName"
           placeholder="Digite o nome do produto"
           error={errors.name}

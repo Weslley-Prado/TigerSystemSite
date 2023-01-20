@@ -1,5 +1,5 @@
 import { Client } from "app/models/clients";
-import { Input } from "components/common";
+import { Input, InputCPF, InputDate, InputPhone } from "components/common";
 import { useFormik } from "formik";
 
 interface ClientFormProps {
@@ -22,6 +22,7 @@ export const ClientForm: React.FC<ClientFormProps> = ({ client, onSubmit }) => {
   const formik = useFormik<Client>({
     initialValues: { ...formScheme, ...client },
     onSubmit,
+    enableReinitialize: true,
   });
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -59,7 +60,7 @@ export const ClientForm: React.FC<ClientFormProps> = ({ client, onSubmit }) => {
         />
       </div>
       <div className="columns">
-        <Input
+        <InputCPF
           id="cpf"
           name="cpf"
           label="Cpf: *"
@@ -68,7 +69,7 @@ export const ClientForm: React.FC<ClientFormProps> = ({ client, onSubmit }) => {
           onChange={formik.handleChange}
           value={formik.values.cpf}
         />
-        <Input
+        <InputDate
           id="birthDate"
           name="birthDate"
           label="Data de Nascimento: *"
@@ -93,13 +94,13 @@ export const ClientForm: React.FC<ClientFormProps> = ({ client, onSubmit }) => {
         <Input
           id="email"
           name="email"
-          label="Data de Nascimento: *"
+          label="Email: *"
           columnClass="is-half"
           autoComplete="off"
           onChange={formik.handleChange}
           value={formik.values.email}
         />
-        <Input
+        <InputPhone
           id="phoneNumber"
           name="phoneNumber"
           label="Telefone: *"

@@ -4,5 +4,13 @@
 */
 export { Layout } from "./layout";
 export { RegisterProducts, ListProducts } from "./products";
-export { Input, Message, Loader } from "./common";
+export {
+  Input,
+  InputMoney,
+  InputCPF,
+  InputPhone,
+  InputDate,
+  Message,
+  Loader,
+} from "./common";
 export { RegisterClient } from "./clients";
