@@ -5,9 +5,11 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { DataTable, DataTablePageParams } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Button } from "primereact/button";
 import { Page } from "app/models/common/page";
+import { confirmDialog } from "primereact/confirmdialog";
 import { useClientService } from "app/services";
-
+import Router from "next/router";
 interface SearchClientsForm {
   name?: string;
   cpf?: string;
@@ -44,6 +46,38 @@ export const ListClients: React.FC = () => {
       })
       .finally(() => setLoading(false));
   };
+  const deleteClientId = (client: Client) => {
+    service.deleteClient(client.id).then((result) => {
+      return handlePage(null);
+    });
+  };
+  const actionTemplate = (register: Client) => {
+    const url = `/registers/clients?id=${register.id}`;
+    return (
+      <div>
+        <Button
+          label="Editar"
+          className="p-button-rounded p-button-info"
+          onClick={(e) => Router.push(url)}
+        />
+        ;
+        <Button
+          label="Excluir"
+          className="p-button-rounded p-button-danger"
+          onClick={(event) => {
+            confirmDialog({
+              message: "Tem certeza que deseja excluir esse registro?",
+              acceptLabel: "Sim",
+              rejectLabel: "Não",
+              accept: () => deleteClientId(register),
+              header: "Confirmação",
+            });
+          }}
+        />
+        ;
+      </div>
+    );
+  };
   return (
     <Layout title="Clientes">
       <form onSubmit={formikSubmit}>
@@ -73,6 +107,15 @@ export const ListClients: React.FC = () => {
               Consultar
             </button>
           </div>
+          <div className="control is-link">
+            <button
+              className="button is-warning"
+              type="submit"
+              onClick={(e) => Router.push("/registers/clients")}
+            >
+              Novo
+            </button>
+          </div>
         </div>
       </form>
       <br />
@@ -93,6 +136,7 @@ export const ListClients: React.FC = () => {
             <Column field="name" header="Nome" />
             <Column field="cpf" header="CPF" />
             <Column field="email" header="Email" />
+            <Column body={actionTemplate} />
           </DataTable>
         </div>
       </div>
