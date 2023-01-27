@@ -1,6 +1,10 @@
 import { Product } from "app/models/products";
 import { useState } from "react";
-import { boolean } from "yup";
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
+import { confirmDialog } from "primereact/confirmdialog";
+import { Button } from "primereact/button";
+import Router from "next/router";
 
 interface TableProductsProps {
   product: Array<Product>;
@@ -13,83 +17,38 @@ export const TableProducts: React.FC<TableProductsProps> = ({
   onEdit,
   onDelete,
 }) => {
-  return (
-    <table className="table is-striped is-hoverable">
-      <thead>
-        <tr>
-          <th>Código</th>
-          <th>SKU</th>
-          <th>Nome</th>
-          <th>Preço</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {product.map((product) => (
-          <ProductRow
-            onDelete={onDelete}
-            onEdit={onEdit}
-            key={product.id}
-            product={product}
-          />
-        ))}
-      </tbody>
-    </table>
-  );
-};
-
-interface ProductRowProps {
-  product: Product;
-  onEdit: (product: any) => void;
-  onDelete: (product: any) => void;
-}
-
-const ProductRow: React.FC<ProductRowProps> = ({
-  product,
-  onEdit,
-  onDelete,
-}) => {
-  const [dialogDelete, setDialogDelete] = useState<boolean>(false);
-
-  const onDeleteClick = (product: Product) => {
-    if (dialogDelete) {
-      onDelete(product);
-      setDialogDelete(false);
-    } else {
-      setDialogDelete(true);
-    }
+  const actionTemplate = (register: Product) => {
+    const url = `/registers/products?id=${register.id}`;
+    return (
+      <div>
+        <Button
+          label="Editar"
+          className="p-button-rounded p-button-info"
+          onClick={(e) => onEdit(register)}
+        />
+        <Button
+          label="Excluir"
+          className="p-button-rounded p-button-danger"
+          onClick={(event) => {
+            confirmDialog({
+              message: "Tem certeza que deseja excluir esse produto?",
+              acceptLabel: "Sim",
+              rejectLabel: "Não",
+              accept: () => onDelete(register),
+              header: "Confirmação",
+            });
+          }}
+        />
+      </div>
+    );
   };
-
-  const exitDelete = () => setDialogDelete(false);
-
   return (
-    <tr>
-      <td>{product.id}</td>
-      <td>{product.sku}</td>
-      <td>{product.name}</td>
-      <td>{product.price}</td>
-      <td>
-        {!dialogDelete && (
-          <button
-            onClick={(e) => onEdit(product)}
-            className="button is-success is-rounded is-small"
-          >
-            Editar
-          </button>
-        )}
-
-        <button
-          onClick={(e) => onDeleteClick(product)}
-          className="button is-danger is-rounded is-small"
-        >
-          {dialogDelete ? "Confirma?" : "Excluir"}
-        </button>
-        {dialogDelete && (
-          <button onClick={exitDelete} className="button is-rounded is-small">
-            Cancelar
-          </button>
-        )}
-      </td>
-    </tr>
+    <DataTable value={product} paginator rows={5}>
+      <Column field="id" header="Código" />
+      <Column field="SKU" header="SKU" />
+      <Column field="name" header="Nome" />
+      <Column field="price" header="Preço" />
+      <Column header="" body={actionTemplate} />
+    </DataTable>
   );
 };
