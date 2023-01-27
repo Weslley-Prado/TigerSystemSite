@@ -11,7 +11,7 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 	
 	//Pageable => serve para a páginação do sistema, lembrando que deve usar os pacotes acima;
 	//like => serve para fazer uma comparação e like :name refere-se a um parâmetro;
-	@Query(" select c from Client c where upper(c.name) like :name and c.cpf like :cpf")
+	@Query(" select c from Client c where upper(c.name) like upper(:name) and c.cpf like :cpf")
 	Page<Client> searchNameCpf(
 			@Param("name")String name, 
 			@Param("cpf")String cpf, Pageable pageable);
