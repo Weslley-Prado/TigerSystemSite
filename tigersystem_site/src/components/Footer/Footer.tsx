@@ -19,13 +19,19 @@ export function Footer() {
         </div>
 
         <div>
-          <a href="" className="me-4 text-reset">
+          <a
+            href="https://www.facebook.com/tigersistem"
+            className="me-4 text-reset"
+          >
             <MDBIcon color="primary" fab icon="facebook-f" />
           </a>
           <a href="" className="me-4 text-reset">
             <MDBIcon color="secondary" fab icon="twitter" />
           </a>
-          <a href="" className="me-4 text-reset">
+          <a
+            href="https://instagram.com/tigersystemtech?igshid=YmMyMTA2M2Y="
+            className="me-4 text-reset"
+          >
             <MDBIcon color="secondary" fab icon="google" />
           </a>
           <a href="" className="me-4 text-reset">
@@ -110,15 +116,11 @@ export function Footer() {
               </p>
               <p>
                 <MDBIcon color="secondary" icon="envelope" className="me-3" />
-                atendimento@tigersystem.com
+                developer@tigersystem.com
               </p>
               <p>
                 <MDBIcon color="secondary" icon="phone" className="me-3" /> + 55
-                28 9 9921 2075
-              </p>
-              <p>
-                <MDBIcon color="secondary" icon="phone" className="me-3" /> + 55
-                27 9 9760 0502
+                28 9 9919 9766
               </p>
             </MDBCol>
           </MDBRow>

@@ -6,12 +6,12 @@ import { api } from "../../services/api";
 import "./Contact.css";
 
 export function Contact() {
-  const API_PATH = "http://localhost/send-email/email.php";
+  const API_PATH = "https://tigersistem.com/send-email/email.php";
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: any) => {
     console.log(data);
-    api.post("http://localhost/send-email/email.php");
+    api.post(API_PATH);
   };
 
   return (
