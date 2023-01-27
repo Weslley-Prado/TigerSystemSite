@@ -1,10 +1,8 @@
 import { Product } from "app/models/products";
-import { useState } from "react";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { confirmDialog } from "primereact/confirmdialog";
 import { Button } from "primereact/button";
-import Router from "next/router";
 
 interface TableProductsProps {
   product: Array<Product>;
@@ -18,7 +16,6 @@ export const TableProducts: React.FC<TableProductsProps> = ({
   onDelete,
 }) => {
   const actionTemplate = (register: Product) => {
-    const url = `/registers/products?id=${register.id}`;
     return (
       <div>
         <Button
