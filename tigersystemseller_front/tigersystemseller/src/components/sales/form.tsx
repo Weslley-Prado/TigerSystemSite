@@ -1,7 +1,7 @@
 import { Client } from "app/models/clients";
 import { Page } from "app/models/common/page";
 import { Sale } from "app/models/sales";
-import { useClientService } from "app/services";
+import { useClientService, useProductService } from "app/services";
 import { useFormik } from "formik";
 import { InputText } from "primereact/inputtext";
 import {
@@ -11,6 +11,7 @@ import {
 } from "primereact/autocomplete";
 import { Button } from "primereact/button";
 import { useState } from "react";
+import { Product } from "app/models/products";
 
 interface SalesFormProps {
   onSubmit: (sale: Sale) => void;
@@ -18,7 +19,7 @@ interface SalesFormProps {
 
 const formScheme: Sale = {
   client: null,
-  product: [],
+  products: [],
   total: 0,
   payment: "",
 };
@@ -28,6 +29,8 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
     initialValues: formScheme,
   });
   const clientService = useClientService();
+  const productService = useProductService();
+  const [product, setProduct] = useState<Product>();
   const [codeProduct, setCodeProduct] = useState<string>("");
   const [listClients, setListClients] = useState<Page<Client>>({
     content: [],
@@ -49,7 +52,16 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
   };
 
   const handleCodeProductSelected = (event) => {
-    console.log(codeProduct);
+    productService
+      .loadProduct(codeProduct)
+      .then((productFinded) => setProduct(productFinded))
+      .catch((error) => console.log(error));
+  };
+
+  const handleAddProduct = () => {
+    console.log(product);
+    const productAlreadyAdded = formik.values.products;
+    productAlreadyAdded.push(product);
   };
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -80,7 +92,7 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
           </div>
           <div className="p-col-6">
             <div className="p-field">
-              <AutoComplete />
+              <AutoComplete value={product} field="name" />
             </div>
           </div>
           <div className="p-col-2">
@@ -93,11 +105,10 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
           </div>
           <div className="p-col-2">
             <div className="p-field">
-              <Button label="Adicionar" />
+              <Button label="Adicionar" onClick={handleAddProduct} />
             </div>
           </div>
         </div>
-
         <Button type="submit" label="Finalizar" />
       </div>
     </form>
