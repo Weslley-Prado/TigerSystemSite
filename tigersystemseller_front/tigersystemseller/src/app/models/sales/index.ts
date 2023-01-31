@@ -3,7 +3,12 @@ import { Product } from "../products";
 
 export interface Sale {
   client?: Client | null;
-  products?: Array<Product>;
+  items?: Array<ItemSale>;
   payment?: string;
   total: number;
+}
+
+export interface ItemSale {
+  product: Product;
+  quantity: number;
 }
