@@ -33,6 +33,8 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
   });
   const clientService = useClientService();
   const productService = useProductService();
+  const [listProduct, setListProduct] = useState<Product[]>([]);
+  const [listFilteredProduct, setListFilteredProduct] = useState<Product[]>([]);
   const [message, setMessage] = useState("");
   const [product, setProduct] = useState<Product | any>();
   const [codeProduct, setCodeProduct] = useState<string>("");
@@ -54,6 +56,20 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
   const handleClientChange = (e: AutoCompleteChangeParams) => {
     const clientSelected: Client = e.value;
     formik.setFieldValue("client", clientSelected);
+  };
+
+  const handleProductAutoComplete = async (
+    e: AutoCompleteCompleteMethodParams
+  ) => {
+    const nameProduct = e.query;
+    if (!listProduct.length) {
+      const productFinded = await productService.list();
+      setListProduct(productFinded);
+    }
+    const filterProduct = listProduct.filter((product: Product) =>
+      product.name?.toLocaleUpperCase().includes(nameProduct.toUpperCase())
+    );
+    setListFilteredProduct(filterProduct);
   };
 
   const handleCodeProductSelected = (event) => {
@@ -132,7 +148,15 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
           </div>
           <div className="p-col-6">
             <div className="p-field">
-              <AutoComplete value={product} field="name" />
+              <AutoComplete
+                value={product}
+                field="name"
+                id="product"
+                name="product"
+                completeMethod={handleProductAutoComplete}
+                suggestions={listFilteredProduct}
+                onChange={(e) => setProduct(e.value)}
+              />
             </div>
           </div>
           <div className="p-col-2">

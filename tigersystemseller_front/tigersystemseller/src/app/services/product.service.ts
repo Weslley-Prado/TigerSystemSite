@@ -28,10 +28,18 @@ export const useProductService = () => {
     await httpClient.delete(url);
   };
 
+  const list = async (): Promise<Product[]> => {
+    const response: AxiosResponse<Product[]> = await httpClient.get(
+      resourceUrl
+    );
+    return response.data;
+  };
+
   return {
     saveProduct,
     updateProduct,
     loadProduct,
     deleteProduct,
+    list,
   };
 };
