@@ -15,7 +15,12 @@ import { Product } from "app/models/products";
 import { Dialog } from "primereact/dialog";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { Dropdown } from "primereact/dropdown";
 
+const formatterMoney = new Intl.NumberFormat("pt-BR", {
+  style: "currency",
+  currency: "BRL",
+});
 interface SalesFormProps {
   onSubmit: (sale: Sale) => void;
 }
@@ -31,6 +36,7 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
     onSubmit,
     initialValues: formScheme,
   });
+  const paymentForm: String[] = ["Dinheiro", "Cartão"];
   const clientService = useClientService();
   const productService = useProductService();
   const [listProduct, setListProduct] = useState<Product[]>([]);
@@ -46,6 +52,19 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
     size: 0,
     totalElements: 0,
   });
+
+  const salesTotal = () => {
+    const totais: number[] = formik.values.items?.map(
+      (is) => is.quantity * is.product.price
+    );
+    if (totais.length) {
+      return totais.reduce(
+        (sumCurrent = 0, valueItemCurrent) => sumCurrent + valueItemCurrent
+      );
+    } else {
+      return 0;
+    }
+  };
 
   const handleClientAutoComplete = (e: AutoCompleteCompleteMethodParams) => {
     const name = e.query;
@@ -102,6 +121,8 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
     setCodeProduct("");
     setProduct(null);
     setQuantityProduct(0);
+    const total = salesTotal();
+    formik.setFieldValue("total", total);
   };
   const handleCloseDialogProductNotFound = () => {
     setMessage("");
@@ -185,7 +206,10 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
         <Button type="submit" label="Finalizar" />
       </div>
       <div className="p-col-12">
-        <DataTable value={formik.values.items}>
+        <DataTable
+          value={formik.values.items}
+          emptyMessage="Nenhum produto adicionado."
+        >
           <Column field="product.id" header="Código" />
           <Column field="product.sku" header="Sku" />
           <Column field="product.name" header="Produto" />
@@ -194,10 +218,43 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
           <Column
             header="Total"
             body={(is: ItemSale | any) => {
-              return <div>{is.product.price * is.quantity}</div>;
+              const total = is.product.price * is.quantity;
+              const totalFormatted = formatterMoney.format(total);
+              return <div>{totalFormatted}</div>;
             }}
           />
         </DataTable>
+      </div>
+      <div className="p-fluid p-grid">
+        <div className="p-col-5">
+          <div className="p-field">
+            <label htmlFor="payment">Formas de pagamento</label>
+            <br />
+            <Dropdown
+              id="payment"
+              options={paymentForm}
+              value={formik.values.payment}
+              onChange={(e) => formik.setFieldValue("payment", e.value)}
+              placeholder="Selecione..."
+            />
+          </div>
+        </div>
+        <div className="p-col-2">
+          <div className="p-field">
+            <label htmlFor="items">Itens</label>
+            <InputText disabled value={formik.values.items?.length} />
+          </div>
+        </div>
+        <div className="p-col-5">
+          <div className="p-field">
+            <label htmlFor="total">Total</label>
+            <br />
+            <InputText
+              disabled
+              value={formatterMoney.format(formik.values.total)}
+            />
+          </div>
+        </div>
       </div>
 
       <Dialog
