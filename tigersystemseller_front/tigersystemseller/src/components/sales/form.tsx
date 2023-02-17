@@ -16,7 +16,7 @@ import { Dialog } from "primereact/dialog";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { Dropdown } from "primereact/dropdown";
-
+import { validationScheme } from "./validationScheme";
 const formatterMoney = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",
@@ -35,8 +35,9 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
   const formik = useFormik<Sale>({
     onSubmit,
     initialValues: formScheme,
+    validationSchema: validationScheme,
   });
-  const paymentForm: String[] = ["Dinheiro", "Cartão"];
+  const paymentForm: String[] = ["DINHEIRO", "CARTAO"];
   const clientService = useClientService();
   const productService = useProductService();
   const [listProduct, setListProduct] = useState<Product[]>([]);
@@ -154,6 +155,7 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
             name="client"
             onChange={handleClientChange}
           />
+          <small className="p-error p-d-block">{formik.errors.client}</small>
         </div>
         <div className="p-grid">
           <div className="p-col-2">
@@ -210,6 +212,23 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
           value={formik.values.items}
           emptyMessage="Nenhum produto adicionado."
         >
+          <Column
+            body={(item: ItemSale) => {
+              const handleRemoveItem = () => {
+                const newList = formik.values.items?.filter(
+                  (is) => is.product.id !== item.product.id
+                );
+                formik.setFieldValue("items", newList);
+              };
+              return (
+                <Button
+                  type="button"
+                  label="Excluir"
+                  onClick={handleRemoveItem}
+                />
+              );
+            }}
+          />
           <Column field="product.id" header="Código" />
           <Column field="product.sku" header="Sku" />
           <Column field="product.name" header="Produto" />
@@ -224,6 +243,9 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
             }}
           />
         </DataTable>
+        <small className="p-error p-d-block">
+          {formik.touched && formik.errors.items}
+        </small>
       </div>
       <div className="p-fluid p-grid">
         <div className="p-col-5">
@@ -237,6 +259,9 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
               onChange={(e) => formik.setFieldValue("payment", e.value)}
               placeholder="Selecione..."
             />
+            <small className="p-error p-d-block">
+              {formik.touched && formik.errors.payment}
+            </small>
           </div>
         </div>
         <div className="p-col-2">

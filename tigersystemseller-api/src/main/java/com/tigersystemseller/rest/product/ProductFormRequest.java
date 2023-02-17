@@ -1,4 +1,6 @@
 package com.tigersystemseller.rest.product;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -12,7 +14,7 @@ public class ProductFormRequest {
 	private String name;
 	private BigDecimal price;
 	private String sku;
-	@JsonFormat(pattern ="dd/MM/yyyy")
+	@JsonFormat(pattern ="yyyy-MM-dd")
 	private LocalDate register;
 
 	public ProductFormRequest(Long id, String description, String name, BigDecimal price, String sku,

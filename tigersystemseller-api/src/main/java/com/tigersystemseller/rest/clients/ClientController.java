@@ -29,13 +29,13 @@ public class ClientController {
      private ClientRepository repository;
      
      @PostMapping
-     public ResponseEntity saveClient(@RequestBody ClientFormRequest request) {
+     public ResponseEntity<ClientFormRequest> saveClient(@RequestBody ClientFormRequest request) {
     	 Client client = request.toModel(); //alt + shift + l => create variable
     	 repository.save(client);
     	 return ResponseEntity.ok(ClientFormRequest.fromModel(client));
      }
      @PutMapping("{id}")
-     public ResponseEntity saveClient(@PathVariable Long id, @RequestBody ClientFormRequest request) {
+     public ResponseEntity<ClientFormRequest> saveClient(@PathVariable Long id, @RequestBody ClientFormRequest request) {
     	 Optional<Client> existsClient = repository.findById(id);    	 
     	 if(existsClient.isEmpty()) {
     		 return ResponseEntity.notFound().build();

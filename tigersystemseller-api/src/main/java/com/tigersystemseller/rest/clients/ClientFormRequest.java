@@ -1,4 +1,5 @@
 package com.tigersystemseller.rest.clients;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 
@@ -10,12 +11,12 @@ public class ClientFormRequest {
 	private Long id;
 	private String name;
 	private String cpf;
-	@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat( pattern = "dd/MM/yyyy")
 	private LocalDate birthDate;	
 	private String address;
 	private String email;
 	private String phoneNumber;
-	@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat( pattern = "dd/MM/yyyy")
 	private LocalDate dateRegister;
 	
 	
