@@ -22,7 +22,7 @@ public class SalesController {
 	
 	@Autowired
 	private ItemSaleRepository itemSaleRepository;
-	
+
 	@PostMapping
 	@Transactional //o spring abre uma transação só faz depois que confirma tudo, ou executa tudo ou não executa nada;
 	public void executeSale(@RequestBody Sale sale) {
@@ -31,4 +31,5 @@ public class SalesController {
 		sale.getItems().stream().forEach(is -> is.setSale(sale));
 		itemSaleRepository.saveAll(sale.getItems());
 	}	
+	
 }
