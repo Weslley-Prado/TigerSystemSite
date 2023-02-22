@@ -8,12 +8,14 @@ import { useState } from "react";
 export const Sales: React.FC = () => {
   const service = useSaleService();
   const [message, setMessage] = useState<Alert[]>([]);
+  const [salesExecuted, setSalesExecuted] = useState<boolean>(false);
   const handleSubmit = (sale: Sale) => {
     console.log(sale);
     service
       .executSale(sale)
       .then((response) => {
         setMessage([{ text: "Venda realizada com sucesso", type: "success" }]);
+        setSalesExecuted(true);
       })
       .catch((error) => {
         console.log(error);
@@ -25,9 +27,18 @@ export const Sales: React.FC = () => {
         ]);
       });
   };
+
+  const handleNewSale = () => {
+    setSalesExecuted(false);
+    setMessage([]);
+  };
   return (
     <Layout title="Venda" messages={message}>
-      <SalesForm onSubmit={handleSubmit}></SalesForm>
+      <SalesForm
+        onSubmit={handleSubmit}
+        onNewSale={handleNewSale}
+        salesExecuted={salesExecuted}
+      ></SalesForm>
     </Layout>
   );
 };

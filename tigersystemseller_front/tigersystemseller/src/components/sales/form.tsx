@@ -23,6 +23,8 @@ const formatterMoney = new Intl.NumberFormat("pt-BR", {
 });
 interface SalesFormProps {
   onSubmit: (sale: Sale) => void;
+  onNewSale: () => void;
+  salesExecuted: boolean;
 }
 
 const formScheme: Sale = {
@@ -31,7 +33,11 @@ const formScheme: Sale = {
   total: 0,
   payment: "",
 };
-export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
+export const SalesForm: React.FC<SalesFormProps> = ({
+  onSubmit,
+  onNewSale,
+  salesExecuted,
+}) => {
   const formik = useFormik<Sale>({
     onSubmit,
     initialValues: formScheme,
@@ -141,6 +147,13 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
   const disableAddProductButton = () => {
     return !product || !quantityProduct;
   };
+
+  const executNewSale = () => {
+    onNewSale();
+    formik.resetForm();
+    formik.setFieldValue("items", []);
+    formik.setFieldTouched("items", false);
+  };
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="p-fluid">
@@ -205,7 +218,6 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
             </div>
           </div>
         </div>
-        <Button type="submit" label="Finalizar" />
       </div>
       <div className="p-col-12">
         <DataTable
@@ -280,8 +292,16 @@ export const SalesForm: React.FC<SalesFormProps> = ({ onSubmit }) => {
             />
           </div>
         </div>
+        {!salesExecuted && <Button type="submit" label="Finalizar" />}
+        {salesExecuted && (
+          <Button
+            type="button"
+            label="Nova venda"
+            onClick={executNewSale}
+            className="p-button-success"
+          />
+        )}
       </div>
-
       <Dialog
         header="Atenção!"
         position="top"
