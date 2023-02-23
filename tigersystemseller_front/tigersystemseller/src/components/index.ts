@@ -6,6 +6,7 @@ export { Layout } from "./layout";
 export { RegisterProducts, ListProducts } from "./products";
 export { RegisterClient, ListClients } from "./clients";
 export { Sales } from "./sales";
+export { ReportSales } from "./reports";
 export {
   Input,
   InputMoney,
