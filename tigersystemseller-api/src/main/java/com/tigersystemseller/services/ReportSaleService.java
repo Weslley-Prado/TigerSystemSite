@@ -3,6 +3,7 @@ package com.tigersystemseller.services;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,15 +25,22 @@ import net.sf.jasperreports.engine.JasperReport;
 public class ReportSaleService {
     @Value("classpath:reports/relatorio-venda.jrxml")
 	private Resource reportSale;
+    @Value("classpath:reports/relatorio-venda.jasper")
+   	private Resource reportSaleCompiled;
     @Autowired
     private DataSource dataSource;
-    public byte[] createReport() {
+    public byte[] createReport(Long idClient, Date dataInit, Date dataEnd) {
     	//try with resources
     	try (
     	     Connection connection = dataSource.getConnection();
         ){
     		JasperReport compileReport = JasperCompileManager.compileReport(reportSale.getInputStream());
     		Map<String,Object> params = new HashMap<>();
+    		params.put("ID_CLIENTE", idClient);
+    		params.put("DATA_INICIO", dataInit);
+    		System.out.println(dataInit);
+    		params.put("DATA_FIM", dataEnd);
+    		System.out.println(dataEnd);
     		JasperPrint print = JasperFillManager.fillReport(compileReport, params, connection);
     		
     		//Retorna array de bytes

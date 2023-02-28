@@ -42,6 +42,9 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\User\Desktop\Project\TigerSystemSite\tigersystemseller-api\.mvn"/>
+			<item value="C:\Users\User\Desktop\Project\TigerSystemSite\tigersystemseller-api\src"/>
+			<item value="C:\Users\User\Desktop\Project\TigerSystemSite\tigersystemseller-api"/>
 			<item value="C:\Users\User\Desktop\Project\tigersystemseller\tigersystemseller-api"/>
 		</list>
 	</section>
