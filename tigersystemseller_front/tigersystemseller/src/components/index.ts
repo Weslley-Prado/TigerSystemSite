@@ -7,6 +7,7 @@ export { RegisterProducts, ListProducts } from "./products";
 export { RegisterClient, ListClients } from "./clients";
 export { Sales } from "./sales";
 export { ReportSales } from "./reports";
+export { Dashboard } from "./dashboard";
 export {
   Input,
   InputMoney,
