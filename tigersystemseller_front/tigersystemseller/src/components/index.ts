@@ -8,6 +8,7 @@ export { RegisterClient, ListClients } from "./clients";
 export { Sales } from "./sales";
 export { ReportSales } from "./reports";
 export { Dashboard } from "./dashboard";
+export { RouteAuthenticated } from "./routeauthenticated";
 export {
   Input,
   InputMoney,

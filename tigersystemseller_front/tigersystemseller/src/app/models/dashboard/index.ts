@@ -6,6 +6,6 @@ export interface DashboardData {
 }
 
 export interface SaleForMonth {
-  mes?: number;
+  mes?: number | undefined;
   valor?: number;
 }

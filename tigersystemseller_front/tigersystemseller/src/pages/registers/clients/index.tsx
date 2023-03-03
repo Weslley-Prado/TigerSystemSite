@@ -1,3 +1,9 @@
-import { RegisterClient } from "components";
+import { RegisterClient, RouteAuthenticated } from "components";
 
-export default RegisterClient;
+export default function () {
+  return (
+    <RouteAuthenticated>
+      <RegisterClient />
+    </RouteAuthenticated>
+  );
+}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MenuItem } from "./menuItem";
+import { signOut } from "next-auth/client";
 
 export const Menu: React.FC = () => {
   return (

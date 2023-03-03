@@ -1,3 +1,9 @@
-import { Sales } from "components";
+import { RouteAuthenticated, Sales } from "components";
 
-export default Sales;
+export default function () {
+  return (
+    <RouteAuthenticated>
+      <Sales />
+    </RouteAuthenticated>
+  );
+}

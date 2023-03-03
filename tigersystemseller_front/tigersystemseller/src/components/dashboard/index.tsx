@@ -1,4 +1,5 @@
 import { SaleForMonth } from "app/models/dashboard";
+import { MONTH } from "app/util/month";
 import { Card } from "primereact/card";
 import { Chart } from "primereact/chart";
 import { useEffect, useState } from "react";
@@ -18,12 +19,11 @@ export const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   const [chartData, setChartData] = useState({});
   const loadDatas = () => {
-    const labels: string[] | undefined = salesForMonth?.map(
-      (sm) => `${sm.mes}`
-    );
+    const labels: string[] | undefined = salesForMonth?.map((sm) => {
+      const numberMonth = sm.mes;
+      return MONTH[Number(numberMonth) - 1];
+    });
     const values = salesForMonth?.map((sm) => sm.valor);
-    console.log(labels);
-    console.log(values);
     const dataGraphic = {
       labels: labels,
       datasets: [

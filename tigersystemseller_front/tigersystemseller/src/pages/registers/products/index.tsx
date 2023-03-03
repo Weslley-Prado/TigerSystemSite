@@ -1,3 +1,9 @@
-import { RegisterProducts } from "components";
+import { RegisterProducts, RouteAuthenticated } from "components";
 
-export default RegisterProducts
+export default function () {
+  return (
+    <RouteAuthenticated>
+      <RegisterProducts />
+    </RouteAuthenticated>
+  );
+}

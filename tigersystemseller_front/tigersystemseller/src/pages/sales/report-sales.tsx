@@ -1,3 +1,9 @@
-import { ReportSales } from "components";
+import { ReportSales, RouteAuthenticated } from "components";
 
-export default ReportSales;
+export default function () {
+  return (
+    <RouteAuthenticated>
+      <ReportSales />
+    </RouteAuthenticated>
+  );
+}

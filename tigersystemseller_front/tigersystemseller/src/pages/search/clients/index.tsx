@@ -1,3 +1,9 @@
-import { ListClients } from "components";
+import { ListClients, RouteAuthenticated } from "components";
 
-export default ListClients;
+export default function () {
+  return (
+    <RouteAuthenticated>
+      <ListClients />
+    </RouteAuthenticated>
+  );
+}

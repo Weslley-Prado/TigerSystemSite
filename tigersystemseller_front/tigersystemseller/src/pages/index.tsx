@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Layout, Dashboard } from "components";
 import { useDashboardService } from "app/services";
 import { DashboardData } from "app/models/dashboard";
+import { RouteAuthenticated } from "components";
 
 interface HomeProps {
   dashboard: DashboardData;
@@ -9,7 +10,7 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = (props: HomeProps) => {
   return (
-    <div>
+    <RouteAuthenticated>
       <Head>
         <title>Tiger System Vendas</title>
         <link rel="icon" href="/favicon.ico" />
@@ -22,7 +23,7 @@ const Home: React.FC<HomeProps> = (props: HomeProps) => {
           salesForMonth={props.dashboard.saleForMonth}
         />
       </Layout>
-    </div>
+    </RouteAuthenticated>
   );
 };
 export async function getStaticProps(context: any) {
