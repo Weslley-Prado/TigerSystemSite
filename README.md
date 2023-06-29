@@ -1,4 +1,4 @@
-# Tiger System Seller and Site
+# Tiger Sistem Seller and Site
 
 My project is the result of the perfect combination of advanced technologies. Using React Js with the NextJs framework and Java with Spring Boot on the backend, I have built a modern and interactive graphical interface. But I don't stop there! I have also developed an institutional website that will enchant your visitors.
 
