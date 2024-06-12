@@ -43,14 +43,68 @@
   }
 
   .sectionHomeServices {
-    display: flex;
-    flex-direction: column; /* Se você quiser os elementos empilhados verticalmente */
-    justify-content: center; /* Centraliza verticalmente */
-    align-items: center; /* Centraliza horizontalmente */
-    text-align: center; /* Centraliza o texto dentro do main */
-    height: 30vh; /* Opcional: ajusta a altura do main para ocupar 100% da altura da viewport */
-    margin: 0 auto; /* Garante que o main tenha margens automáticas */
-    padding: 10px; /* Adiciona algum espaço interno */
+//     display: flex;
+//     flex-direction: column; /* Se você quiser os elementos empilhados verticalmente */
+//     justify-content: center; /* Centraliza verticalmente */
+//     align-items: center; /* Centraliza horizontalmente */
+//     text-align: center; /* Centraliza o texto dentro do main */
+//     height: 30vh; /* Opcional: ajusta a altura do main para ocupar 100% da altura da viewport */
+//     margin: 0 auto; /* Garante que o main tenha margens automáticas */
+//     padding: 10px; /* Adiciona algum espaço interno */
+//   }
+
+  padding: 20px;
+  text-align: center;
+}
+
+.service {
+  margin: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.service h3 {
+  margin-bottom: 10px;
+}
+
+.serviceImage {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.service p {
+  font-size: 0.9em;
+  color: #333;
+}
+
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2.5em;
+    color: #000;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .custom-prev {
+    left: 10px;
+  }
+  
+  .custom-next {
+    right: 10px;
+  }
+  
+  .custom-arrow:hover {
+    color: #f00;
+  }
+  
+  
+  .slick-prev, .slick-next {
+    display: none !important;
   }
 
   .equipe {
