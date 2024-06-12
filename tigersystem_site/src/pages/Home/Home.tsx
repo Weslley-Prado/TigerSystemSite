@@ -1,127 +1,107 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import Banner1 from "../../assets/img/banner1.jpg";
 import Banner2 from "../../assets/img/banner2.jpg";
 import Banner3 from "../../assets/img/banner3.jpg";
-import Software from "../../assets/img/softwares.jpg";
 
-import Automatic from "../../assets/video/verifica.gif";
-import Show from "../../assets/video/apresentacao.gif";
-import Watch from "../../assets/video/relogio.gif";
-import Search from "../../assets/video/procurar.gif";
+import BusinessTeam from "../../assets/img/businessTeam.png";
+import TeamEnginerring from "../../assets/img/teamEnginerring.png";
 
-import "./Home.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+import "./Home.scss";
 
 export function Home() {
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 }); // Inicialize AOS e defina a duração da animação para 1 segundo
+  }, []);
+  
   return (
     <>
-      <Carousel className="carousel"variant="dark">
+      <Carousel className="carousel" variant="white">
         <Carousel.Item>
-          <img
-            className="d-block w-100 sizeImg"
-            src={Banner1}
-            alt="First slide"
-          />
+          <img className="d-block w-100 sizeImg" src={Banner1} alt="First slide" />
           <Carousel.Caption>
-            <h5 className="corouselParagraph">
-              Confira em nosso site as nossas soluções
-            </h5>
+            <h5 className="corouselParagraph">Confira em nosso site as nossas soluções</h5>
             <p className="corouselParagraph">
-              Especialista no desenvolvimento de soluções de softwares digitais
-              para empresas
+              Especialista no desenvolvimento de soluções de softwares digitais para empresas
             </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100 sizeImg"
-            src={Banner2}
-            alt="Second slide"
-          />
+          <img className="d-block w-100 sizeImg" src={Banner2} alt="Second slide" />
           <Carousel.Caption>
             <h5 className="corouselParagraph">Temos o melhor atendimento</h5>
-            <p className="corouselParagraph">
-              Estamos preparados para melhor lhe entender
-            </p>
+            <p className="corouselParagraph">Estamos preparados para melhor lhe entender</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100 sizeImg"
-            src={Banner3}
-            alt="Third slide"
-          />
+          <img className="d-block w-100 sizeImg" src={Banner3} alt="Third slide" />
           <Carousel.Caption>
             <h5 className="corouselParagraph">Entre em contato conosco</h5>
-            <p className="corouselParagraph">
-              Temos as melhores soluções para sua empresa
-            </p>
+            <p className="corouselParagraph">Temos as melhores soluções para sua empresa</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <main>
-        <h2 className="mainTitle">
-          {" "}
-          Empresa especializada em automação comerical, desenvolvimentos de
-          sites e ecommerce
-        </h2>
-        <p className="mainParagraph">
-          Contamos com uma equipe especializada pronta para entregar soluções
-          tecnológicas para sua empresa. Confira os nossos serviços e produtos
-          em nosso site e entre em contato conosco. Garantimos o melhor
-          atendimento e suporte. Atendemos todo o Brasil e exterior, estamos
-          localizados em Linhares, Espírito Santo
+      <main className="mainHome" data-aos="fade-up">
+        <h2 data-aos="fade-up" data-aos-delay="100">Tiger Sistem</h2>
+        <p className="paragraphMainHome" data-aos="fade-up" data-aos-delay="200">
+          Somos uma empresa de engenharia e consultoria em tecnologia da informação, oferecendo uma ampla gama de serviços tecnológicos.
+          Especializamos-nos no desenvolvimento de software personalizado, integração de sistemas, desenvolvimento web e mobile, micro serviços,
+          arquitetura de software e soluções. Além disso, fornecemos mentoria e treinamento técnico para capacitar sua equipe.
+        </p>
+        <p className="paragraphMainHome" data-aos="fade-up" data-aos-delay="300">
+          Também somos especialistas em promover a transformação digital completa das empresas, incluindo o gerenciamento de bancos de dados
+          e a administração de infraestrutura de TI.
         </p>
       </main>
-      <section className="showIntroductionHome">
-        <div className="introductionHome">
-          <img className="d-block w-100 sizeGif" src={Show} alt="First slide" />
-          <p>
-            Consiga clientes das mais diferentes regiões por ter a sua empresa
-            acessível para o mundo. A Tiger System ajuda as empresas a
-            conseguirem clientes por meio de desenvolvimento e divulgação de
-            sites.
-          </p>
-        </div>
-        <div className="introductionHome">
-          <img
-            className="d-block w-100 sizeGif"
-            src={Watch}
-            alt="First slide"
-          />
-          <p>
-            A Tiger System utiliza o que há mais de tecnológicos da atualidade e
-            estamos em constante atualização acompanhando o mercado de TI. Por isso.
-            incentivamos você a conhecer mais de nossos serviços.
-          </p>
-        </div>
-        <div className="introductionHome">
-          <img
-            className="d-block w-100 sizeGif"
-            src={Search}
-            alt="First slide"
-          />
-          <p>
-            Fique a apenas um clique de seus clientes, a tendência é cada vez
-            mais serviços e produtos serem fornecedidos via web, pois traz mais
-            praticidade durante todo o processo de compra e venda. Entre em
-            contato conosco!
-          </p>
-        </div>
-        <div className="introductionHome">
-            <img
-            className="d-block w-100 sizeGif"
-            src={Automatic}
-            alt="First slide"
-          />
-          <p>
-            Além disso, temos sistemas que automatizam tarefas do seu negócios.
-            Permitindo que você ofereça uma melhor experiências aos seus
-            clientes. Confira já os nossos serviços e produtos.
-          </p>
+
+      <section className="sectionHomeTeam" data-aos="fade-up">
+        <h2>Nossa Equipe</h2>
+        <div className="equipe">
+          <div className="membro" data-aos="fade-up" data-aos-delay="200">
+            <h3>Comercial</h3>
+            <img className="imgAdmTeam" src={BusinessTeam} alt="Nome do Membro 2" />
+            <p>
+              Nossa equipe é composta por especialistas altamente capacitados em arquitetura, desenvolvimento, engenharia de software e gestão de projetos.
+              Somos uma equipe multidisciplinar, capaz de integrar as principais tecnologias ao mundo dos negócios.
+            </p>
+          </div>
+          <div className="membro" data-aos="fade-up" data-aos-delay="400">
+            <h3>Engenharia</h3>
+            <img className="imgTeam" src={TeamEnginerring} alt="Nome do Membro 1" />
+            <p>
+              Nossa equipe é composta por especialistas altamente capacitados em arquitetura, desenvolvimento, engenharia de software e gestão de projetos.
+              Somos uma equipe multidisciplinar, capaz de integrar as principais tecnologias ao mundo dos negócios.
+            </p>
+          </div>
         </div>
       </section>
-      <section className="informMore">
+
+      <section className="sectionHomeServices" data-aos="fade-up">
+        <h2>Nossos Serviços</h2>
+        {/* <div className="equipe">
+          <div className="membro" data-aos="fade-up" data-aos-delay="200">
+            <h3>Comercial</h3>
+            <img className="imgAdmTeam" src={BusinessTeam} alt="Nome do Membro 2" />
+            <p>
+              Nossa equipe é composta por especialistas altamente capacitados em arquitetura, desenvolvimento, engenharia de software e gestão de projetos.
+              Somos uma equipe multidisciplinar, capaz de integrar as principais tecnologias ao mundo dos negócios.
+            </p>
+          </div>
+          <div className="membro" data-aos="fade-up" data-aos-delay="400">
+            <h3>Engenharia</h3>
+            <img className="imgTeam" src={TeamEnginerring} alt="Nome do Membro 1" />
+            <p>
+              Nossa equipe é composta por especialistas altamente capacitados em arquitetura, desenvolvimento, engenharia de software e gestão de projetos.
+              Somos uma equipe multidisciplinar, capaz de integrar as principais tecnologias ao mundo dos negócios.
+            </p>
+          </div>
+        </div> */}
+      </section>
+      {/* <section className="informMore">
         <div className="infoMore">
           <h2>Aplicações de qualidade para o seu negócio</h2>
           <hr />
@@ -144,7 +124,7 @@ export function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

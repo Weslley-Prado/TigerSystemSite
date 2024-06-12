@@ -10,14 +10,14 @@
 .title {
     color: white;
     font-size: 28px;
-    animation-name: example;
+    /* animation-name: example;
     animation-iteration-count: infinite;
-    animation-duration: 1s;
+    animation-duration: 1s; */
     padding: 10px;
 
 }
 
-@keyframes example {
+/* @keyframes example {
     from {
         color: rgb(215, 215, 215);
         transform: scale(0.9, 0.9);
@@ -30,7 +30,7 @@
         font-weight: bold;
         text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
     }
-}
+} */
 
 .titleProduct hr {
     width: 90%;

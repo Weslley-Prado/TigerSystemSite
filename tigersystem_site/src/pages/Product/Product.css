@@ -13,9 +13,9 @@
 .title {
     color: white;
     font-size: 28px;
-    animation-name: example;
+    /* animation-name: example;
     animation-iteration-count: infinite;
-    animation-duration: 1s;
+    animation-duration: 1s; */
     padding: 10px;    
 }
 
