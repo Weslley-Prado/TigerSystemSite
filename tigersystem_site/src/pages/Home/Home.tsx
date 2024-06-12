@@ -24,24 +24,31 @@ export function Home() {
         <Carousel.Item>
           <img className="d-block w-100 sizeImg" src={Banner1} alt="First slide" />
           <Carousel.Caption>
-            <h5 className="corouselParagraph">Confira em nosso site as nossas soluções</h5>
-            <p className="corouselParagraph">
-              Especialista no desenvolvimento de soluções de softwares digitais para empresas
+            <div data-aos="fade-right">
+            <h5 className="corouselParagraph" data-aos="fade-right" data-aos-delay="200">
+              Descubra Nossas Soluções Inovadoras</h5>
+            <p className="corouselParagraph" data-aos="fade-right" data-aos-delay="400">
+            Desenvolvemos software personalizado e oferecemos consultoria especializada em TI para empresas
             </p>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100 sizeImg" src={Banner2} alt="Second slide" />
           <Carousel.Caption>
-            <h5 className="corouselParagraph">Temos o melhor atendimento</h5>
-            <p className="corouselParagraph">Estamos preparados para melhor lhe entender</p>
+          <div data-aos="fade-right">
+            <h5 className="corouselParagraph" data-aos="fade-right" data-aos-delay="200">Excelência em Atendimento</h5>
+            <p className="corouselParagraph" data-aos="fade-right" data-aos-delay="400">Estamos prontos para entender suas necessidades e fornecer soluções sob medida</p>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100 sizeImg" src={Banner3} alt="Third slide" />
           <Carousel.Caption>
-            <h5 className="corouselParagraph">Entre em contato conosco</h5>
-            <p className="corouselParagraph">Temos as melhores soluções para sua empresa</p>
+          <div data-aos="fade-right">
+            <h5 className="corouselParagraph" data-aos="fade-right" data-aos-delay="200" >Fale Conosco</h5>
+            <p className="corouselParagraph" data-aos="fade-right" data-aos-delay="400" >Oferecemos as melhores soluções em TI para transformar seu negócio</p>
+            </div>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
