@@ -111,33 +111,7 @@ export function Home() {
     },
   ];
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: false,
-  //   speed: 500,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 3,
-  //   nextArrow: <FaArrowAltCircleRight />,
-  //   prevArrow: <FaArrowAltCircleLeft />,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 2,
-  //         infinite: false,
-  //         dots: true
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 600,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         slidesToScroll: 1
-  //       }
-  //     }
-  //   ]
-  // };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -224,8 +198,9 @@ export function Home() {
             <h3>Comercial</h3>
             <img className="imgAdmTeam" src={BusinessTeam} alt="Nome do Membro 2" />
             <p>
-              Nossa equipe é composta por especialistas altamente capacitados em arquitetura, desenvolvimento, engenharia de software e gestão de projetos.
-              Somos uma equipe multidisciplinar, capaz de integrar as principais tecnologias ao mundo dos negócios.
+            Nosso time comercial está comprometido em oferecer o melhor atendimento, 
+            esclarecendo suas dúvidas e construindo uma relação de parceria, 
+            com o objetivo de ajudá-lo a encontrar a solução ideal para sua empresa.
             </p>
           </div>
           <div className="membro" data-aos="fade-up" data-aos-delay="400">
@@ -251,30 +226,7 @@ export function Home() {
           ))}
         </Slider>
       </section>
-      {/* <section className="informMore">
-        <div className="infoMore">
-          <h2>Aplicações de qualidade para o seu negócio</h2>
-          <hr />
 
-          <div className="imgInfo">
-            <img className="imgSetInfo" src={Software} />
-            <div className="textDivHome">
-            <p className="textInfoHome">
-              Buscamos oferecer o que há de mais atual na tecnologia para sua empresa. A nossa preocupação
-              é que sua empresa aproveita ao máximo o que o mundo da computação tem a nos proporcionar!
-            </p>
-            <p className="textInfoHome">
-              Os nossos profissionais se preocupam com todos os detalhes no desenvolvimento, na instalação
-              e no suporte do seu site, sistema ou ecommerce. Tentamos proporcionar a melhor experiênciaso
-              para você e seu cliente
-            </p>
-            <p className="textInfoHome">
-              Entre em contato conosco e confira as nossas ofertas, garantimos a sua satisfação.
-            </p>
-            </div>
-          </div>
-        </div>
-      </section> */}
     </>
   );
 }
